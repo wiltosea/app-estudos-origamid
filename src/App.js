@@ -5,9 +5,6 @@ const App = () => {
     return console.log(event.clientX);
   }
 
-  function handleClickDireito(event) {
-    return alert('não');
-  }
   return (
     <>
       <button onMouseMove={handleClick}>Clique</button>
