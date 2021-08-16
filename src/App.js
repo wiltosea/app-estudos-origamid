@@ -1,4 +1,7 @@
 import React from 'react';
+import Header from './Header';
+import Footer from './Footer';
+import Form from './Form/Form';
 
 const App = () => {
   function handleClick(event) {
@@ -7,8 +10,10 @@ const App = () => {
 
   return (
     <>
-      <button onMouseMove={handleClick}>Clique</button>
-      <button onClick={(event) => console.log(event)}>Clique</button>
+      <Header />
+      <p>Conteúdo do site</p>
+      <Form />
+      <Footer />
     </>
   );
 };
