@@ -1,11 +1,10 @@
 {
   "git.enabled": false,
   "files.exclude": {
-    "node_modules": true,
-    ".vscode": true,
-    ".gitignore": true,
-    "package.json": true,
-    "package-lock.json": true,
-    "public": true
+    "**/.DS_Store": false,
+    "**/.git": false,
+    "**/.hg": false,
+    "**/.svn": false,
+    "**/CVS": false
   }
 }

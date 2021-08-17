@@ -1,14 +1,23 @@
 import React from 'react';
+import Header from './Header';
+import Home from './Home';
+import ProdutosPagina from './ProdutosPagina';
 
 const App = () => {
-  function handleClick(event) {
-    return console.log(event.clientX);
+  const { pathname } = window.location;
+
+  let Component;
+  if (pathname === '/ProdutosPagina') {
+    Component = ProdutosPagina;
+  } else {
+    Component = Home;
   }
+
   return (
-    <>
-      <button onMouseMove={handleClick}>Clique</button>
-      <button onClick={(event) => console.log(event)}>Clique</button>
-    </>
+    <section>
+      <Header />
+      <Component />
+    </section>
   );
 };
 export default App;
