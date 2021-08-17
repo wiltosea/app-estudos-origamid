@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import Form from './Form/Form';
+import Lista from './Lista/Lista';
 
 const App = () => {
   const Titulo = ({ cor, texto, children }) => {
@@ -15,12 +16,10 @@ const App = () => {
   return (
     <>
       <Header />
-      <Titulo texto="Meu título" cor="#d3d">
-        <p>Títulosão</p>
-        <p>da Porra</p>
-      </Titulo>
+      <Titulo texto="Login" cor="#99d" />
       <p>Conteúdo do site</p>
       <Form />
+      <Lista />
       <Footer />
     </>
   );
