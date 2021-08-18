@@ -1,10 +1,14 @@
 import React from 'react';
 
 const App = () => {
-  let ativo = true;
+  // const ativoHook = React.useState(true);
+  // const ativoValor = ativoHook[0];
+  // const atualizaValor = ativoHook[1];
+  const [ativo, setAtivo] = React.useState(true);
+  console.log(ativo);
+
   function handleClick() {
-    ativo = !ativo;
-    console.log(ativo);
+    setAtivo(!ativo);
   }
 
   return (
