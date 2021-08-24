@@ -3,7 +3,7 @@ import Produto from './Produto';
 
 const App = () => {
   const [dados, setDados] = React.useState(null);
-  const [carregando, setCarregando] = React.useState(null);
+  const [carregando, setCarregando] = React.useState(false);
 
   async function handleClick(event) {
     setCarregando(true);
@@ -12,16 +12,18 @@ const App = () => {
     );
     const json = await response.json();
     setDados(json);
+    console.log(dados);
     setCarregando(false);
   }
 
   return (
     <>
-      <button onClick={handleClick}>smartphone</button>
-      <button onClick={handleClick}>tablet</button>
-      <button onClick={handleClick}>notebook</button>
-      {carregando && <p>Carregando...</p>}
+      <button onClick={handleClick}>Tablet</button>
+      <button onClick={handleClick}>Smartphone</button>
+      <button onClick={handleClick}>Notebook</button>
+      {carregando && <p>carregando...</p>}
       {!carregando && dados && <Produto dados={dados} />}
+      {!dados && !carregando && <p>Selecione um produto</p>}
     </>
   );
 };
