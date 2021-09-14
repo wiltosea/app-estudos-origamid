@@ -1,22 +1,37 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const App = () => {
   const [produto, setProduto] = useState([]);
 
-  useEffect(() => {
+  function getProduto() {
     fetch('https://ranekapi.origamid.dev/json/api/produto/notebook')
-      .then((response) => response.json())
-      .then((result) => {
-        setProduto(result);
-        return console.log(produto);
+      .then((response) => {
+        return response.json();
+      })
+      .then((myJson) => {
+        console.log(Array.from(myJson));
+        return setProduto(Array.from(myJson));
       });
-    console.log('executou');
-  }, [produto]);
+  }
+
+  useEffect(() => {
+    getProduto();
+  }, []);
   return (
     <div>
-      <button onClick={(nomeProduto = 'notebook')}>notebook</button>
+      <button>notebook</button>
       <span> </span>
       <button>smartphone</button>
+      <div>
+        {produto.map((item, index) => {
+          return (
+            <div key={index}>
+              <p>{item.nome}</p>
+              <p>{item.preco}</p>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };
